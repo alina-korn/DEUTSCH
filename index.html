@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Немецкий язык</title>
+</head>
+<body>
+    <h1>Учите немецкий язык</h1>
+    <p>Нажмите на слово или фразу, чтобы его прослушать:</p>
+    <button onclick="speak('Hallo')">Hallo</button>
+    <button onclick="speak('Wie geht es dir?')">Wie geht es dir?</button>
+
+    <script>
+        function speak(text) {
+            var speech = new SpeechSynthesisUtterance(text);
+            speech.lang = 'de-DE'; // Устанавливаем язык на немецкий
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+</html>
