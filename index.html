@@ -14,9 +14,20 @@
     <script>
         function speak(text) {
             var speech = new SpeechSynthesisUtterance(text);
-            speech.lang = 'de-DE'; // Устанавливаем язык на немецкий
+            var voices = window.speechSynthesis.getVoices();
+            var germanVoice = voices.find(voice => voice.lang === 'de-DE');
+            if (germanVoice) {
+                speech.voice = germanVoice;
+            } else {
+                console.log('Немецкий голос не найден!');
+            }
+            speech.lang = 'de-DE';
             window.speechSynthesis.speak(speech);
         }
+        window.speechSynthesis.onvoiceschanged = () => {
+            listVoices();
+        };
     </script>
+    
 </body>
 </html>
