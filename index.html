@@ -12,22 +12,32 @@
     <button onclick="speak('Wie geht es dir?')">Wie geht es dir?</button>
 
     <script>
-        function speak(text) {
-            var speech = new SpeechSynthesisUtterance(text);
-            var voices = window.speechSynthesis.getVoices();
-            var germanVoice = voices.find(voice => voice.lang === 'de-DE');
-            if (germanVoice) {
-                speech.voice = germanVoice;
-            } else {
-                console.log('Немецкий голос не найден!');
+        let germanVoice = null;
+
+        function loadVoices() {
+            const voices = window.speechSynthesis.getVoices();
+            germanVoice = voices.find(voice => voice.lang === 'de-DE'); // Берем немецкий голос (желательно без акцента)
+
+            if (!germanVoice) {
+                console.warn("Немецкий голос не найден, будет использован стандартный");
             }
+        }
+
+        function speak(text) {
+            let speech = new SpeechSynthesisUtterance(text);
             speech.lang = 'de-DE';
+
+            if (germanVoice) {
+                speech.voice = germanVoice; // Устанавливаем принудительно немецкий голос
+            }
+
             window.speechSynthesis.speak(speech);
         }
-        window.speechSynthesis.onvoiceschanged = () => {
-            listVoices();
-        };
+
+        // Ждем загрузки голосов
+        window.speechSynthesis.onvoiceschanged = loadVoices;
     </script>
-    
 </body>
 </html>
+
+
