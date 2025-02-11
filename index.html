@@ -3,36 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Немецкий язык</title>
+    <title>Учите немецкий язык</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Учите немецкий язык</h1>
-    <p>Нажмите на слово или фразу, чтобы его прослушать:</p>
-    <button onclick="speak('Hallo')">Hallo</button>
-    <button onclick="speak('Wie geht es dir?')">Wie geht es dir?</button>
-
-    <script>
-        function speak(text) {
-            var speech = new SpeechSynthesisUtterance(text);
-            speech.lang = 'de-DE'; // Устанавливаем язык на немецкий
-
-            // Получаем список голосов
-            var voices = window.speechSynthesis.getVoices();
-            
-            // Выбираем первый немецкий голос, если доступен
-            var germanVoice = voices.find(voice => voice.lang.startsWith('de'));
-            if (germanVoice) {
-                speech.voice = germanVoice;
-            }
-
-            window.speechSynthesis.speak(speech);
-        }
-
-        // Загружаем голоса асинхронно
-        window.speechSynthesis.onvoiceschanged = function() {
-            speak(""); // Вызов пустого текста для инициализации голосов
-        };
-    </script>
+    <h1>Выберите уровень:</h1>
+    <ul>
+        <li><a href="a1.html">A1</a></li>
+        <li><a href="a2.html">A2</a></li>
+    </ul>
 </body>
 </html>
 

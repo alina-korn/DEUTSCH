@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Урок 1: Приветствие",
+        "content": "Сегодня мы изучим, как здороваться на немецком.",
+        "phrases": [
+            { "text": "Hallo", "audio": "Hallo" },
+            { "text": "Guten Morgen", "audio": "Guten Morgen" }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Урок 2: Прощание",
+        "content": "Сегодня мы изучим, как прощаться.",
+        "phrases": [
+            { "text": "Auf Wiedersehen", "audio": "Auf Wiedersehen" },
+            { "text": "Tschüss", "audio": "Tschüss" }
+        ]
+    }
+]
